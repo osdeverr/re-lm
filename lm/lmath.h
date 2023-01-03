@@ -24,10 +24,10 @@ namespace lm
 		inline Vec2 operator* (float v) const { return Vec2(x * v, y * v); }
 		inline Vec2 operator/ (float v) const { return Vec2(x / v, y / v); }
 
-		inline Vec2 operator*= (float v) { x *= v; y *= v; return *this; }
-		inline Vec2 operator+= (const Vec2& v) { return Vec2(x += v.x, y += v.y); }
-		inline Vec2 operator-= (const Vec2& v) { return Vec2(x -= v.x, y -= v.y); }
-		inline Vec2 operator/= (float v) { x /= v; y /= v; return *this; }
+		inline Vec2& operator+= (const Vec2& v) { *this = *this + v; return *this; }
+		inline Vec2& operator-= (const Vec2& v) { *this = *this - v; return *this; }
+		inline Vec2& operator*= (const Vec2& v) { *this = *this * v; return *this; }
+		inline Vec2& operator/= (const Vec2& v) { *this = *this / v; return *this; }
 
 		union
 		{
@@ -53,10 +53,10 @@ namespace lm
 		inline Vec3 operator* (float v) const { return Vec3(x * v, y * v, z * v); }
 		inline Vec3 operator/ (float v) const { return Vec3(x / v, y / v, z / v); }
 
-		inline Vec3 operator+= (const Vec3& v) { return Vec3(x += v.x, y += v.y, z += v.z); }
-		inline Vec3 operator-= (const Vec3& v) { return Vec3(x -= v.x, y -= v.y, z -= v.z); }
-		inline Vec3 operator*= (float v) { x *= v; y *= v; z *= v; return *this; }
-		inline Vec3 operator/= (float v) { x /= v; y /= v; z /= v; return *this; }
+		inline Vec3& operator+= (const Vec3& v) { *this = *this + v; return *this; }
+		inline Vec3& operator-= (const Vec3& v) { *this = *this - v; return *this; }
+		inline Vec3& operator*= (const Vec3& v) { *this = *this * v; return *this; }
+		inline Vec3& operator/= (const Vec3& v) { *this = *this / v; return *this; }
         
         inline Vec3 Left() const { return Vec3(y, -x, z); }
         inline Vec3 Right() const { return -Left(); }
@@ -78,15 +78,17 @@ namespace lm
 		inline float& operator[](int i) { return a[i]; }
 		inline const float& operator[](int i) const { return a[i]; }
 
-		inline Vec4 operator+= (Vec4 v) { return Vec4(x += v.x, y += v.y, z += v.z, w += v.w); }
-		inline Vec4 operator-= (Vec4 v) { return Vec4(x -= v.x, y -= v.y, z -= v.z, w -= v.w); }
-
 		inline Vec4 operator+ (const Vec4& v) const { return Vec4(x + v.x, y + v.y, z + v.z, w + v.w); }
 		inline Vec4 operator- (const Vec4& v) const { return Vec4(x - v.x, y - v.y, z - v.z, w - v.w); }
 		inline Vec4 operator* (const Vec4& v) const { return Vec4(x * v.x, y * v.y, z * v.z, w * v.w); }
 		inline Vec4 operator/ (const Vec4& v) const { return Vec4(x / v.x, y / v.y, z / v.z, w / v.w); }
 		inline Vec4 operator* (float v) const { return Vec4(x * v, y * v, z * v, w * v); }
 		inline Vec4 operator/ (float v) const { return Vec4(x / v, y / v, z / v, w / v); }
+
+		inline Vec4& operator+= (const Vec4& v) { *this = *this + v; return *this; }
+		inline Vec4& operator-= (const Vec4& v) { *this = *this - v; return *this; }
+		inline Vec4& operator*= (const Vec4& v) { *this = *this * v; return *this; }
+		inline Vec4& operator/= (const Vec4& v) { *this = *this / v; return *this; }
 
 		union
 		{
