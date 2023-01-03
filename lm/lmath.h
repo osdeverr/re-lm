@@ -28,6 +28,8 @@ namespace lm
 		inline Vec2& operator-= (const Vec2& v) { *this = *this - v; return *this; }
 		inline Vec2& operator*= (const Vec2& v) { *this = *this * v; return *this; }
 		inline Vec2& operator/= (const Vec2& v) { *this = *this / v; return *this; }
+		inline Vec2& operator*= (float v) { *this = *this * v; return *this; }
+		inline Vec2& operator/= (float v) { *this = *this / v; return *this; }
 
 		union
 		{
@@ -57,6 +59,8 @@ namespace lm
 		inline Vec3& operator-= (const Vec3& v) { *this = *this - v; return *this; }
 		inline Vec3& operator*= (const Vec3& v) { *this = *this * v; return *this; }
 		inline Vec3& operator/= (const Vec3& v) { *this = *this / v; return *this; }
+		inline Vec3& operator*= (float v) { *this = *this * v; return *this; }
+		inline Vec3& operator/= (float v) { *this = *this / v; return *this; }
         
         inline Vec3 Left() const { return Vec3(y, -x, z); }
         inline Vec3 Right() const { return -Left(); }
@@ -89,6 +93,8 @@ namespace lm
 		inline Vec4& operator-= (const Vec4& v) { *this = *this - v; return *this; }
 		inline Vec4& operator*= (const Vec4& v) { *this = *this * v; return *this; }
 		inline Vec4& operator/= (const Vec4& v) { *this = *this / v; return *this; }
+		inline Vec4& operator*= (float v) { *this = *this * v; return *this; }
+		inline Vec4& operator/= (float v) { *this = *this / v; return *this; }
 
 		union
 		{
