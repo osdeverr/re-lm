@@ -12,6 +12,7 @@ namespace lm
 		inline Vec2(float _x, float _y) : x(_x), y(_y) {}
 
 		inline float& operator[](int i) { return a[i]; }
+		inline const float& operator[](int i) const { return a[i]; }
 
 		inline Vec2 operator- () const { return Vec2(-x, -y); }
 
@@ -41,6 +42,7 @@ namespace lm
 		inline Vec3(float _x, float _y, float _z) { x = _x; y = _y; z = _z; }
 
 		inline float& operator[](int i) { return a[i]; }
+		inline const float& operator[](int i) const { return a[i]; }
 
 		inline Vec3 operator- () const { return Vec3(-x, -y, -z); }
 
@@ -72,6 +74,7 @@ namespace lm
 		inline Vec4(float _x, float _y, float _z, float _w) { x = _x; y = _y; z = _z; w = _w; }
 
 		inline float& operator[](int i) { return a[i]; }
+		inline const float& operator[](int i) const { return a[i]; }
 
 		inline Vec4 operator+= (Vec4 v) { return Vec4(x += v.x, y += v.y, z += v.z, w += v.w); }
 		inline Vec4 operator-= (Vec4 v) { return Vec4(x -= v.x, y -= v.y, z -= v.z, w -= v.w); }
