@@ -48,6 +48,8 @@ namespace lm
 
 		inline Vec3 operator+ (const Vec3& v) const { return Vec3(x + v.x, y + v.y, z + v.z); }
 		inline Vec3 operator- (const Vec3& v) const { return Vec3(x - v.x, y - v.y, z - v.z); }
+		inline Vec3 operator* (const Vec3& v) const { return Vec3(x * v.x, y * v.y, z * v.z); }
+		inline Vec3 operator/ (const Vec3& v) const { return Vec3(x / v.x, y / v.y, z / v.z); }
 		inline Vec3 operator* (float v) const { return Vec3(x * v, y * v, z * v); }
 		inline Vec3 operator/ (float v) const { return Vec3(x / v, y / v, z / v); }
 
@@ -81,6 +83,8 @@ namespace lm
 
 		inline Vec4 operator+ (const Vec4& v) const { return Vec4(x + v.x, y + v.y, z + v.z, w + v.w); }
 		inline Vec4 operator- (const Vec4& v) const { return Vec4(x - v.x, y - v.y, z - v.z, w - v.w); }
+		inline Vec4 operator* (const Vec4& v) const { return Vec4(x * v.x, y * v.y, z * v.z, w * v.w); }
+		inline Vec4 operator/ (const Vec4& v) const { return Vec4(x / v.x, y / v.y, z / v.z, w / v.w); }
 		inline Vec4 operator* (float v) const { return Vec4(x * v, y * v, z * v, w * v); }
 		inline Vec4 operator/ (float v) const { return Vec4(x / v, y / v, z / v, w / v); }
 
