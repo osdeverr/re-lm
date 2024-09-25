@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include <algorithm>
 #include <cmath>
 
 namespace lm
@@ -343,5 +344,40 @@ namespace lm
 	}
 
 	inline Vec3 Abs(const Vec3& v) { return Vec3(fabsf(v.x), fabsf(v.y), fabsf(v.z)); }
-}
 
+    template <class T>
+    static T Lerp(T from, T to, float progress)
+    {
+        return to * progress + from * (1 - progress);
+    }
+
+    inline lm::Vec2 Lerp(const lm::Vec2 &from, const lm::Vec2 &to, float progress)
+    {
+        return {Lerp(from.x, to.x, progress), Lerp(from.y, to.y, progress)};
+    }
+
+    inline lm::Vec3 Lerp(const lm::Vec3 &from, const lm::Vec3 &to, float progress)
+    {
+        return {Lerp(from.x, to.x, progress), Lerp(from.y, to.y, progress), Lerp(from.z, to.z, progress)};
+    }
+
+    inline lm::Vec4 Lerp(const lm::Vec4 &from, const lm::Vec4 &to, float progress)
+    {
+        return {Lerp(from.x, to.x, progress), Lerp(from.y, to.y, progress), Lerp(from.z, to.z, progress),
+                Lerp(from.w, to.w, progress)};
+    }
+
+    inline lm::Vec4 Slerp(const lm::Vec4 &q1, const lm::Vec4 &q2, float t)
+    {
+        float dot = lm::Dot(q1, q2);
+
+        // Clamp dot to avoid acos domain errors
+        dot = std::min(std::max(dot, -1.0f), 1.0f);
+
+        float theta = std::acos(dot) * t;
+        lm::Vec4 relativeQuat = q2 - q1 * dot;
+        relativeQuat = lm::Normalize(relativeQuat);
+
+        return lm::Normalize(q1 * std::cos(theta) + relativeQuat * std::sin(theta));
+    }
+} // namespace lm
